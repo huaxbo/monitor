@@ -1,0 +1,5 @@
+﻿#sideBar{margin:0;padding:0;position:absolute;top:60px;right:1px;}
+#sideBar_cnt{position:absolute;top:35px;right:1px;width:285px;padding:3px 3px;margin:0;}
+.sideBar_top{float:left;width:279px;padding:10px 0 0 10px;margin:0;background:url(../images/ico/slide_top.png) no-repeat;height:13px;}
+.sideBar_middle{float:left;width:279px;padding:10px 0 0 10px;margin-top:-18px;background:url(../images/ico/slide_middle.png) repeat-y;overflow-x:hidden;overflow-y:auto;}
+.sideBar_bottom{float:left;width:279px;padding:10px 0 0 10px;margin:0;background:url(../images/ico/slide_bottom.png) no-repeat;height:13px;}

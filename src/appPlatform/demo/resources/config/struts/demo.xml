@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    
+	<package name="demo" namespace="/demo" extends="struts-default,jasperreports-default">
+	    <!-- =====================common action+result================================ -->
+		<!-- global-results 存在包可见性问题，由包的extends属性决定-->
+		<global-results> 
+            <result name="exception">../globalJsp/exception/exception.jsp</result>
+            <result name="message" type="redirect">toMessage.action?message=${message}</result>
+            <result name="alertMessage" type="redirect">alertMessage.action?message=${message}</result>
+            <result name="noPriv" type="redirectAction">alertNoPriv.action</result>
+            <result name="noPrivJQuery" type="redirectAction">alertJQueryNoPriv.action</result>
+            <!-- 这里主要是为了表单提交时数据类型转出错转向的地方 -->
+            <result name="input">../globalJsp/exception/validateError.jsp</result>
+            <result name="invalid.token">../globalJsp/exception/token.jsp</result>
+		</global-results> 
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		 
+		
+		<action name="alertNoPriv" class="com.hxb.util.struts.AlertNoPriv">
+            <result type="stream">
+	            <param name="contentType">text/html;charset=UTF-8</param>   
+	            <!-- 指定提供InputStream的filed name -->   
+	            <param name="inputName">noPrivStream</param>   
+	            <param name="bufferSize">256</param>   
+            </result>
+		</action>
+		<action name="alertJQueryNoPriv" class="com.hxb.util.struts.AlertJQueryNoPriv">
+            <result type="stream">
+	            <param name="contentType">text/html;charset=UTF-8</param>   
+	            <!-- 指定提供InputStream的filed name -->   
+	            <param name="inputName">jQueryNoPrivStream</param>   
+	            <param name="bufferSize">256</param>   
+            </result>
+		</action>
+		<action name="alertMessage" class="com.hxb.util.struts.AlertMessage"></action>
+		
+		<!-- =====================busi action+result================================ -->
+		 <!-- welcome -->
+		 <action name="demoWelcomeAction" class="demoWelcomeAction">
+		 	<result name="main">/demo/main.jsp</result>
+		 </action>
+		 <!-- demo1 -->
+		 <action name="demo1Action_*" method="{1}" class="demo1Action">
+		 	<result name="test1">demo1/test1.jsp</result>
+		 	<result name="test2">demo1/test2.jsp</result>
+		 	<result name="test3">demo1/test3.jsp</result>
+		 	<result name="test4">demo1/test4.jsp</result>
+		 	<result name="test5">demo1/test5.jsp</result>
+		 </action>
+		 
+        <!-- demo2 -->        
+        <action name="demo2Action_*" method="{1}" class="demo2Action">
+          	<result name="list">demo2/list.jsp</result>  
+            <result name="form">demo2/form.jsp</result>
+            <result name="detail">demo2/detail.jsp</result>
+            <result name="excel" type="jasper">
+             <param name="location">/demo/demo2/demo2.jasper</param>
+             <param name="format">XLS</param>
+             <param name="dataSource">rlt_list</param>
+			 <param name="contentDisposition">attachment;filename="${excelName}"</param>
+            </result>
+        </action>
+	</package>
+</struts>
+
+
+

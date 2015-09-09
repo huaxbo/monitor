@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/WebRoot</rootDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>false</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation></warLocation>
+    <extraInfo></extraInfo>
+    <webPath>SSO</webPath>
+    <webClassPathEntries>
+        <webClassPathEntry>/SSO/WebRoot/WEB-INF/classes</webClassPathEntry>
+        <webClassPathEntry>/common/WebRoot/WEB-INF/classes</webClassPathEntry>
+    </webClassPathEntries>
+</tomcatProjectProperties>

@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+</head>
+<body>
+<div class="box_inquiry_mar">
+	<div class="box_inquiry_ft">院系名称：</div>
+	<div class="box_select-outer box_select-wh145">
+	  <div class="box_select-inner">
+		<s:textfield key="con_deptName" cssClass="box_select-h"></s:textfield>
+	  </div>
+	</div>
+</div>
+<div class="box_inquiry_mar">
+	<div class="box_inquiry_ft">学生姓名：</div>
+	<div class="box_select-outer box_select-wh145">
+		<div class="box_select-inner">
+			<s:textfield key="con_name" cssClass="box_select-h"></s:textfield>
+		</div>
+	</div>
+</div>
+<div class="box_inquiry_mar">
+	<div class="box_inquiry_ft">起始日期：</div>
+	<div class="box_select-outer box_select-wh145">
+		<div class="box_select-inner">
+			<s:textfield key="con_startDt" cssClass="box_select-h Wdate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})"></s:textfield>
+		</div>
+	</div>
+</div>
+<div class="box_inquiry_mar">
+	<div class="box_inquiry_ft">结束日期：</div>
+	<div class="box_select-outer box_select-wh145">
+		<div class="box_select-inner">
+			<s:textfield key="con_endDt" cssClass="box_select-h Wdate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})"></s:textfield>
+		</div>
+	</div>
+</div>	
+</body>
+</html>

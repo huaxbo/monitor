@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subSyses>
+	<!-- 
+		sysMarker:功能图标css名称
+		sysContext:子系统上下文名称,以"/"开头
+		sysPath:资源地址,以"/"开头。默认为空
+		sysTitle:子系统标题
+	-->
+	<!-- <subSys>
+		<sysMarker>nav_ico1</sysMarker>
+		<sysContext>/demo</sysContext>
+		<sysPath></sysPath>
+		<sysTitle>样例</sysTitle>
+	</subSys>
+	<subSys>
+		<sysMarker>nav_ico11</sysMarker>
+		<sysContext>/gisBusi</sysContext>
+		<sysPath>/gisBusi/gis.jsp</sysPath>
+		<sysTitle>应用中心</sysTitle>
+	</subSys>
+	<subSys>
+		<sysMarker>nav_ico2</sysMarker>
+		<sysContext>/baseInfo</sysContext>
+		<sysPath></sysPath>
+		<sysTitle>基础信息</sysTitle>
+	</subSys>
+	<subSys>
+		<sysMarker>nav_ico3</sysMarker>
+		<sysContext>/rainHy</sysContext>
+		<sysPath></sysPath>
+		<sysTitle>雨水情监测</sysTitle>
+	</subSys>
+	<subSys>
+		<sysMarker>nav_ico4</sysMarker>
+		<sysContext>/projInfo</sysContext>
+		<sysPath></sysPath>
+		<sysTitle>工情信息</sysTitle>
+	</subSys>
+	<subSys>
+		<sysMarker>nav_ico5</sysMarker>
+		<sysContext>/warnRes</sysContext>
+		<sysPath></sysPath>
+		<sysTitle>预警监视</sysTitle>
+	</subSys>
+	<subSys>
+		<sysMarker>nav_ico6</sysMarker>
+		<sysContext>/wthSolid</sysContext>
+		<sysPath></sysPath>
+		<sysTitle>气象国土</sysTitle>
+	</subSys>
+	<subSys>
+		<sysMarker>nav_ico7</sysMarker>
+		<sysContext>/sysMgr</sysContext>
+		<sysPath></sysPath>
+		<sysTitle>系统管理</sysTitle>
+	</subSys> -->
+	
+</subSyses>

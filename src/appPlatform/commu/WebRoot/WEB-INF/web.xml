@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" 
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:/applicationContext.xml
+		</param-value>
+	</context-param>
+	<!-- 系统配置文件名称，配置文件放在src（即classess）中或src中的config中 -->
+	<context-param>
+		<param-name>
+			sysConfigLocation
+		</param-name>
+		<param-value>
+			config.commu.xml,
+		</param-value>
+	</context-param>
+	
+	<!-- hibernate延迟加载 -->
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<!-- 帮助清理struts或quartz等框架的Introspector所造成的垃圾，防止的内存泄漏 -->
+	<listener>
+		<listener-class>
+			org.springframework.web.util.IntrospectorCleanupListener
+		</listener-class>
+	</listener>
+	<!-- 支持requst session生命周期的action -->
+	<listener>
+		<listener-class>
+			org.springframework.web.context.request.RequestContextListener
+		</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>com.hxb.global.util.SysListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.hxb.commu.util.CommuListener</listener-class>
+	</listener>
+	
+	<servlet>  
+	    <servlet-name>XFireServlet</servlet-name>  
+	    <servlet-class>  
+	        org.codehaus.xfire.spring.XFireSpringServlet 
+	    </servlet-class>  
+	</servlet>    
+	<servlet-mapping>  
+	    <servlet-name>XFireServlet</servlet-name>  
+	    <url-pattern>/services/*</url-pattern>  
+	</servlet-mapping>  
+	
+</web-app>

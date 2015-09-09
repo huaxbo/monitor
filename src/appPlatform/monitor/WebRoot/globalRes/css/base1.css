@@ -1,0 +1,75 @@
+body {margin: 0px;padding: 0px;font-family: 微软雅黑,宋体;font-size: 12px;}
+div,ul,li,ol,dl,dt,dd,img,p,h1,h2,h3,p{margin:0px;padding:0px;list-style-type: none;border:0;}
+a {color: #4f4f4f;text-decoration: none;}
+a:hover {color: #2f5280;}
+.min{ min-width:1024px;}
+
+
+/* 头部 */
+.header1 {height: 80px;background: url(../images/header.png) repeat-x left top;overflow:hidden;}
+
+
+.header_bg {height: 80px;background: url(../images/header_bg.png) no-repeat left top;}
+.header_logo {float: left;height: 53px;width: 185px;background: url(../images/header_logo.png) no-repeat;margin: 10px 0 0 20px;display: block;}
+.header_nav {height: 80px;width: 60.5%;margin-left: 26%;}
+
+.nav {height: 41px;}
+.nav li {float: left;width: 80px;display: block;height: 80px;margin: 0 4px;}
+.nav li a {display: block;height: 80px;width: 80px;}
+.nav li a:hover {width: 80px;display: block;height: 80px;background: url(../images/ico/nav_a.png) no-repeat;}
+.nav li span {font-family: "微软雅黑";font-size: 14px;color: #FFFFFF;display: block;line-height: 22px;text-align: center;} 
+.nav_a {background: url(../images/ico/nav_a.png) no-repeat;}
+.nav_margin {padding-top: 8px; }
+.nav_ico1 {height: 47px; background: url(../images/ico/nav_ico_1.png) no-repeat center;}
+.nav_ico11 {height: 47px; background: url(../images/ico/nav_ico_11.png) no-repeat center;}
+.nav_ico2 {height: 47px; background: url(../images/ico/nav_ico_2.png) no-repeat center;}
+.nav_ico3 {height: 47px; background: url(../images/ico/nav_ico_3.png) no-repeat center;}
+.nav_ico4 {height: 47px; background: url(../images/ico/nav_ico_4.png) no-repeat center;}
+.nav_ico5 {height: 47px; background: url(../images/ico/nav_ico_5.png) no-repeat center;}
+.nav_ico6 {height: 47px; background: url(../images/ico/nav_ico_6.png) no-repeat center;}
+.nav_ico7 {height: 47px; background: url(../images/ico/nav_ico_7.png) no-repeat center;}
+#nav_center{margin:0;padding:0;width:80px;height:80px;float:left;display:inline-bolck;}
+.msg {float: right;height: 74px;width: 130px;margin-top: 6px;padding-right:5px;}
+.msgt {height: 22px;margin: 10px 0 5px 0;}
+.msgt span {color: #FFF;height: 22px;padding-left: 25px;line-height: 22px;display: block;float: left;width: 40px;}
+.msgt span a {color: #FFF;}
+.msgt span a:hover {color: #FF0;}
+.msgt span.Help {background: url(../images/ico/Help.png) no-repeat;}
+.msgt span.Quit {background: url(../images/ico/Quit.png) no-repeat;}
+.msgt_ft {text-align: center;line-height: 22px;color: #fff;margin-top: 3px;}
+
+
+
+/* 底部 */
+.footer1 {height: 31px;background: url(../images/footer.png) repeat-x;width:100%;position:absolute;bottom:0px;}
+
+
+.footer_mar {width: 960px;margin: 0 auto;height: 31px;text-align: center;line-height: 31px;color: #fff;}
+.footer_mar span {width: 1px;margin: 0 15px;}
+
+
+/* 侧导航 */
+.TopCMP_SecMenuBG{margin:0px;padding:0px;font-size:14px;width: 223px;}
+.TopCMP_SecMenuBG ul{margin:0px;padding:0px;width: 223px; }
+.TopCMP_SecMenuBG_li1{height:36px;line-height:36px;list-style:none;color:#fff;font-weight:bold;background:url(../images/menu/menu_bg.png) no-repeat;cursor:pointer;}			
+.TopCMP_SecMenuBG ul li ul{margin:0px;padding:0px;}
+.TopCMP_SecMenuBG_li2{height:33px;line-height:33px;list-style:none;color:#000000;background-color:#eaf3ff;cursor:pointer;}	
+.TopCMP_SecMenuBG_li2:hover {height:33px;background:url(../images/menu/menu_li_a.png) no-repeat;color:#fff;cursor:pointer;}
+.TopCMP_SecMenuBG_li2_red{height:33px;line-height:33px;list-style:none;background:url(../images/menu/menu_li_hover.png) no-repeat;cursor:pointer;}	
+.left_menu_more{height: 36px;line-height: 36px;padding-left: 20px;background: url(../images/menu/menu_1.png) no-repeat 190px top;}
+.left_menu_less{height:36px;line-height:36px;padding-left:20px;background:url(../images/menu/menu_2.png) no-repeat 190px top;}
+.left_menu_more2{padding-left:40px;background: url(../images/menu/menu_li_ico.png) no-repeat left top;}
+.left_menu_more2:hover{padding-left:40px;background: url(../images/menu/menu_li_aico.png) no-repeat left top;}
+.left_menu_less2{padding-left:40px;background:url(../images/menu/menu_li_aico.png) no-repeat left top;}
+.leftMenu_height_hack{*height:0px;}
+.menu_bg{background-color:#eaf3ff;}
+
+
+/* 编辑表单 */
+div.form{margin:5px 5px;}
+div.form table{border:1px solid #95B8E7;border-collapse:collapse;width:100%;}
+div.form table tr td{margin:0 0;padding:3px 3px;border:1px solid #95B8E7;line-height:20px;}
+td.item{text-align:right;}
+td.itemValue{text-align:left;}
+td.itemButton{text-align:center;}
+

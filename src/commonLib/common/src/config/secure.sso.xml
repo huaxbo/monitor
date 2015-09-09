@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- 如果是debug=true状态，登录验证、权限控制、日志记录都失去作用 -->
+	<debug>false</debug>
+	<!-- 需要对登录状态（即会话有效性）进行验证的URL -->
+	<controlUrl>.action,.free,.jQuery,.flex,.jsp,.html,.htm,/dwr</controlUrl>
+	<!-- 存在于需要登录状态验证的URL中，但实际不需要验证 -->
+	<releaseUrl>
+	exception.jsp,
+	validateError.jsp,
+	toMessage.action,
+	alertNoPriv.action,
+	alertJQueryNoPriv.action,
+	initSystem.action,
+	toCreateTable.action,
+	toInsertAllData.action,
+	toUpdatePower.action,
+	ctiadAction!createTables.action,
+	ctiadAction!insertData.action,
+	updatePower!updatePowersByInsert.action,
+	*.free,
+	*.jpg,
+	*.gif,
+	*.png,
+	*.swf,
+	</releaseUrl>
+	
+	<!-- 系统外网ip。
+		单点登录模块、业务模块必须部署在一个内网，公用一个外网固定ip 
+	-->
+	<outterIp>123.127.220.83</outterIp>
+	<!-- 单点登录模块内外ip -->
+	<ssoInnerIp>192.168.2.17</ssoInnerIp>
+	<!-- 业务模块内外ip -->
+	<localInnerIp>192.168.2.17</localInnerIp>
+	<!-- 单点登录服务地址。{ip}为自适应，无需配置。
+		仅仅根据具体情况配置端口号、单点登录上下文名称即可。
+		eg.端口为8083，服务名为SSO，可配置为:http://{ip}:8083/SSO
+	 -->
+	<ssoAccess>http://{ip}:8083/SSO</ssoAccess>
+	<!-- sso系统UDP接收端口号 -->
+	<ssoUdpPort>20001</ssoUdpPort>
+	<!-- 本系统UDP发送数据超时时长(毫秒) -->
+	<udpSendTimeOut>2000</udpSendTimeOut>
+	<!-- 本系统UDP接收数据超时时长(毫秒) -->
+	<udpReceiveTimeOut>2000</udpReceiveTimeOut>
+	<!-- 本系统UDP接收数据字节长 -->
+	<udpReceiveDataLen>1024</udpReceiveDataLen>
+	<!-- 本系统接收命令回数的超时时长(秒) -->
+	<waitReturnTimeOut>5</waitReturnTimeOut>
+	<!-- 等待登录返回本系统的最大时长(秒)，
+	如果超过个时间，即使登录成功返回了，SSO要求其还要登录 
+	最小取值是60，最大取值是120 
+	-->
+	<waitLoginTimeOut>60</waitLoginTimeOut>
+	<!-- 
+	cookieMaxTime 是针对没有固定IP的用户，
+	cookie存活时长(秒),取值范围是-1或大于36000 
+	取-1代表关闭浏览器cookie即失效
+	取36000代表10小时以上
+	-->
+	<cookieMaxTime>-1</cookieMaxTime>
+	<!-- 
+	cookieMaxTimeForFixedIP 是针对有固定IP的用户，生成永不过期cookie
+	cookie存活时长(秒)取值范围是大于31536000秒(1年)
+	以下配置315360000=10年
+	-->
+	<cookieMaxTimeForFixedIP>315360000</cookieMaxTimeForFixedIP>
+	<!-- 是否有权限控制 进行权限控制取值为true ,反之取值为false	-->
+	<checkPower>true</checkPower>
+	<!-- 
+	   web服务上下文层级，如果此项不配置，默认是一级上下文，上下文层级大于或等于1
+	   举例:
+	   一级上下文：http://127.0.0.1:8083/monitor/
+	   二级上下文：http://127.0.0.1:8083/monitor/swBase/ 这种情况是多个子系统在一个上下文中部署运行，通过struts2的不同包路径也区分不同子系统
+	 -->
+	 <contextLevel>2</contextLevel>
+	<!-- 
+	   web服务上下文子上下文，
+	   例如:
+	   http://127.0.0.1:8083/monitor/swBase/ 其中swBase是子上下文
+	   单点登录操作中，如果是DWR的访问，DWR要把子上下文去掉，所以会话过期后，DWR的engine.js中页面跳转时，将不能跳转到正确的子上下文中。
+	   举例：
+	   二级上下文：http://127.0.0.1:8083/monitor/swBase/ 用DWR访问时将变为http://127.0.0.1:8083/monitor/dwr
+	 另外：
+	 如果上面配置成 <contextLevel>1</contextLevel>即一级上下文，此处配置为空
+	 -->
+	 <subContext>tree</subContext>
+
+</config>

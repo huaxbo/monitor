@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   					   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   					   http://www.springframework.org/schema/aop
+	   					   http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<!-- XFire start -->  
+	<import resource="classpath:org/codehaus/xfire/spring/xfire.xml" />  
+	<bean id="webAnnotations" class="org.codehaus.xfire.annotations.jsr181.Jsr181WebAnnotations" />  
+	<bean id="jsr181HandlerMapping"  class="org.codehaus.xfire.spring.remoting.Jsr181HandlerMapping">  
+	    <property name="xfire" ref="xfire" />  
+	    <property name="webAnnotations" ref="webAnnotations" />  
+	</bean>  
+	<!-- XFire end -->
+	<!-- 重新启动服务器 -->
+	<!-- <bean id="reStartPCServer" class="com.hxb.util.system.ReStartPCServer">
+	</bean> -->
+
+	<!-- 清理数据库日志，压缩数据库 -->
+	<!-- <bean id="cleanDataBaseLog" class="com.hxb.util.system.CleanDataBaseLog">
+		<property name="busi" ref="cleanDataBaseLogBusi"></property>
+	</bean>
+	<bean id="cleanDataBaseLogBusi" class="com.hxb.util.system.CleanDataBaseLogBusi">
+		<property name="dao" ref="cleanDataBaseLogDao"></property>
+	</bean>
+	<bean id="cleanDataBaseLogDao" parent="abstractDao"
+		class="com.hxb.util.system.CleanDataBaseLogDao">
+	</bean> -->
+
+
+	<!-- 得到各乡镇并缓存内存中，以供频繁引用 -->
+	<!-- <bean id="amGl.regionBusi" class="com.hxb.flood.global.regionBusi.RegionBusi">
+		<property name="dao" ref="amGl.regionDao"></property>
+	</bean>
+	<bean id="amGl.regionDao" parent="abstractDao" class="com.hxb.flood.global.regionBusi.RegionDao" />
+
+ -->	<!-- 得到各河流并缓存内存中，以供频繁引用 -->
+	<!-- <bean id="amGl.riverBusi" class="com.hxb.flood.global.riverBusi.RiverBusi">
+		<property name="dao" ref="amGl.riverDao"></property>
+	</bean>
+	<bean id="amGl.riverDao" parent="abstractDao" class="com.hxb.flood.global.riverBusi.RiverDao" />
+ -->
+	<!-- 得到各流域并缓存内存中，以供频繁引用 -->
+	<!-- <bean id="amGl.valleyBusi" class="com.hxb.flood.global.valleyBusi.ValleyBusi">
+		<property name="dao" ref="amGl.valleyDao"></property>
+	</bean>
+	<bean id="amGl.valleyDao" parent="abstractDao" class="com.hxb.flood.global.valleyBusi.ValleyDao" />
+ -->
+	<!-- 得到各测站并缓存内存中，以供频繁引用 -->
+	<!-- <bean id="amGl.stationBusi" class="com.hxb.flood.global.stationBusi.StationBusi">
+		<property name="dao" ref="amGl.stationDao"></property>
+	</bean>
+	<bean id="amGl.stationDao" parent="abstractDao" class="com.hxb.flood.global.stationBusi.StationDao" />
+ -->
+	<!-- 得到各水库并缓存内存中，以供频繁引用 -->
+<!-- 	<bean id="amGl.reserviorBusi" class="com.hxb.flood.global.reserviorBusi.ReserviorBusi">
+		<property name="dao" ref="amGl.reserviorDao"></property>
+	</bean>
+	<bean id="amGl.reserviorDao" parent="abstractDao" class="com.hxb.flood.global.reserviorBusi.ReserviorDao" />
+ -->	<!-- 得到各角色并缓存内存中，以供频繁引用 -->
+<!-- 	<bean id="amGl.roleBusi" class="com.hxb.flood.global.roleBusi.RoleBusi">
+		<property name="dao" ref="amGl.roleDao"></property>
+	</bean>
+	<bean id="amGl.roleDao" parent="abstractDao" class="com.hxb.flood.global.roleBusi.RoleDao" />
+
+ -->
+	<!-- 刷新oracle数据库连接，防止会话过期 -->
+<!-- 	<bean id="amGl.flushOracleDbBusi" class="com.hxb.util.flushOracleDB.FlushBusi">
+		<property name="dao" ref="amGl.flushOracleDbDao"></property>
+	</bean>
+	<bean id="amGl.flushOracleDbDao" parent="abstractDao" class="com.hxb.util.flushOracleDB.FlushDao" />
+ -->
+
+</beans>

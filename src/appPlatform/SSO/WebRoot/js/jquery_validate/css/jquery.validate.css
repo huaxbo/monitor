@@ -1,0 +1,12 @@
+em.error{
+	background:url("unchecked.gif") no-repeat 0px 0px;
+	padding-left:16px;
+	font-style:normal;
+	color:#FF0000;
+}
+em.success{
+	background:url("checked.gif") no-repeat 0px 0px;
+	padding-left:16px;
+	font-style:normal;
+	color:#006600;
+}

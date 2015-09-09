@@ -1,0 +1,6 @@
+<ThreadPoolCfg>
+	<!-- 最小线程数 -->
+	<minThreads>3</minThreads>
+	<!-- 最大线程数 -->
+	<maxThreads>10</maxThreads>
+</ThreadPoolCfg>

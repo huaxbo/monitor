@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   					   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   					   http://www.springframework.org/schema/aop
+	   					   http://www.springframework.org/schema/aop/spring-aop-2.5.xsd" >
+
+	<aop:config proxy-target-class="true">
+		<!-- 
+			在要控制的方法进行CheckPriv注释，如@CheckPriv("PRIV_1","PRIV_2")
+		 -->
+		<aop:aspect ref="privMethod">
+			<aop:around method="aroundMethod"
+						pointcut="@annotation(com.hxb.common.secure.priv.CheckPriv)" />
+		</aop:aspect>
+		<!-- 
+			为JQuery框架中的load请求页面，在要控制的方法进行CheckPrivJQuery注释，如@CheckPrivJQuery("PRIV_1","PRIV_2")
+		 -->
+		<aop:aspect ref="privMethodJQuery">
+			<aop:around method="aroundMethod"
+						pointcut="@annotation(com.hxb.common.secure.priv.CheckPrivJQuery)" />
+		</aop:aspect>
+		<!-- 
+			为DWR框架，在要控制的方法进行CheckPrivDwr注释，如@CheckPrivDwr("PRIV_1","PRIV_2")
+		 -->
+		<aop:aspect ref="privMethodDwr">
+			<aop:around method="aroundMethod"
+						pointcut="@annotation(com.hxb.common.secure.priv.CheckPrivDwr)" />
+		</aop:aspect>
+		<!-- 
+			为Flex框架，在要控制的方法进行CheckPrivFlex注释，如@CheckPrivFlex("PRIV_1","PRIV_2")
+		 -->
+		<aop:aspect ref="privMethodFlex">
+			<aop:around method="aroundMethod"
+						pointcut="@annotation(com.hxb.common.secure.priv.CheckPrivFlex)" />
+		</aop:aspect>
+	</aop:config>
+	<bean id="privMethod" class="com.hxb.common.secure.priv.PrivMethod"/>
+	<bean id="privMethodJQuery" class="com.hxb.common.secure.priv.PrivMethodJQuery"/>
+	<bean id="privMethodDwr" class="com.hxb.common.secure.priv.PrivMethodDwr"/>
+	<bean id="privMethodFlex" class="com.hxb.common.secure.priv.PrivMethodFlex"/>
+</beans>

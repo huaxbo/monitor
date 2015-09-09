@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<!-- TCP远程参数配置：远程服务端口 -->
+  <remote_port>9014</remote_port>
+  
+  
+</config>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <!-- 系统名称 -->
+  <systemName>实时监控系统</systemName>  
+  <!-- 是否使用oracle数据库。1：是、0：否 -->
+  <sys.oracleDB>0</sys.oracleDB>
+</config>

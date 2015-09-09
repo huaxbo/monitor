@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<monitor.remote>远程控制</monitor.remote>
+	<monitor.remote.1>远程设备列表</monitor.remote.1>
+	
+	<monitor.statis>查询统计</monitor.statis>
+	<monitor.statis.1>最新上报数据</monitor.statis.1>
+	<monitor.staits.2>远程命令数据</monitor.staits.2>
+	<monitor.statis.3>远程通讯日志</monitor.statis.3>
+	
+	<monitor.manager>系统管理</monitor.manager>
+	<monitor.manager.1>通讯服务管理</monitor.manager.1>
+	<monitor.manager.2>测控设备管理</monitor.manager.2>
+	<monitor.manager.3>系统权限管理</monitor.manager.3>
+	
+	
+	
+	
+	
+</config>

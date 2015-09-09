@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+	<!-- 
+	系统安全log日志功能执行的前提 单点登录控制功能，
+	如果 单点登录控制功能未启用，则log日志功能也不能启作用，
+	原因是单点登录控制功能得到当前登录用户信息，而系统安全log日志功能需要当前登录用户信息
+	-->
+
+	<!-- 用户的操作日志是否执行 -->
+	<!-- 当secure.sso.xml的 <debug>true</debug>为true时，这里必须为false-->
+	<!-- 如果是isLog=false状态，不进行日志记录 -->
+	<isLog>false</isLog>
+	<!-- 用户的操作日志执行类 -->
+	<logClass>com.hxb.global.service.log.AmLog</logClass>
+	
+	
+</config>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <!-- 附件存储位置 ，webRoot为根目录-->
+    <attachmentPosition>attachment</attachmentPosition>
+    
+</config>

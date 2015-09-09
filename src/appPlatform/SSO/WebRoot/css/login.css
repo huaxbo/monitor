@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;}
+a img{border:0;}
+ul{list-style:none;}
+body{font:100%/1.5 bold italic arial,"\5FAE\8F6F\96C5\9ED1","\5B8B\4F53"; background:#0942b3;border-style:none;}
+#login{height: 768px;margin: 0 auto;background: url(../images/login-bg.jpg) no-repeat  center;}
+#login .box{ width:338px; height:247px;position:absolute; left:50%; top:207px; margin-left:-398px; padding-top:117px;padding-left:60px;}
+#login .box ul li{margin-bottom: 30px;color: #565656;height: 28px;display: inline-block;}
+#login .box label {line-height: 28px;width: 50px;height: 28px;vertical-align: middle;display: block;float: left;}
+#name{width: 195px;height: 28px; padding:3px;margin-left: 10px;background-color: #ebf5ff;border-top: 1px solid #b4cce5;border-right: 1px solid #d6e2ee;border-bottom: 1px solid #d6e2ee;border-left: 1px solid #b4cce5;line-height: 28px;}
+#passwd{width: 195px;height: 28px; padding:3px;margin-left: 10px;background-color: #ebf5ff;border-top: 1px solid #b4cce5;border-right: 1px solid #d6e2ee;border-bottom: 1px solid #d6e2ee;border-left: 1px solid #b4cce5;line-height: 28px;}
+#login .box .login-button a{display:block; width:209px; height:41px;margin-left:56px;background:url(../images/login-button1.jpg) no-repeat 0 0;}
+#login .box .login-button a:hover{background:url(../images/login-button2.jpg) no-repeat 0 0;}

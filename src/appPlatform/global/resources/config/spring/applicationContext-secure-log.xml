@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   					   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   					   http://www.springframework.org/schema/aop
+	   					   http://www.springframework.org/schema/aop/spring-aop-2.5.xsd" >
+
+	<aop:config proxy-target-class="true">
+		<!-- 
+			在要日志的方法进行Logor注释，如@Logor("执行了删除操作")
+		 -->
+		<aop:aspect ref="logMethod">
+			<aop:around method="aroundMethod"
+						pointcut="@annotation(com.hxb.common.secure.log.Logor)" />
+		</aop:aspect>
+	</aop:config>
+	<bean id="logMethod" class="com.hxb.global.service.log.AmLogMethod"/>
+
+</beans>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    
+	<package name="monitor" namespace="/monitor" extends="struts-default,jasperreports-default">
+	    <!-- =====================common action+result================================ -->
+		<!-- global-results 存在包可见性问题，由包的extends属性决定-->
+		<global-results> 
+            <result name="exception">../globalJsp/exception/exception.jsp</result>
+            <result name="message" type="redirect">toMessage.action?message=${message}</result>
+            <result name="alertMessage" type="redirect">alertMessage.action?message=${message}</result>
+            <result name="noPriv" type="redirectAction">alertNoPriv.action</result>
+            <result name="noPrivJQuery" type="redirectAction">alertJQueryNoPriv.action</result>
+            <!-- 这里主要是为了表单提交时数据类型转出错转向的地方 -->
+            <result name="input">../globalJsp/globalException/validateError.jsp</result>
+		</global-results> 
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings> 
+		
+		<action name="alertNoPriv" class="com.hxb.util.struts.AlertNoPriv">
+            <result type="stream">
+	            <param name="contentType">text/html;charset=UTF-8</param>   
+	            <!-- 指定提供InputStream的filed name -->   
+	            <param name="inputName">noPrivStream</param>   
+	            <param name="bufferSize">256</param>   
+            </result>
+		</action>
+		<action name="alertJQueryNoPriv" class="com.hxb.util.struts.AlertJQueryNoPriv">
+            <result type="stream">
+	            <param name="contentType">text/html;charset=UTF-8</param>   
+	            <!-- 指定提供InputStream的filed name -->   
+	            <param name="inputName">jQueryNoPrivStream</param>   
+	            <param name="bufferSize">256</param>   
+            </result>
+		</action>
+		<action name="alertMessage" class="com.hxb.util.struts.AlertMessage"></action>
+		
+		<!-- =====================busi action+result================================ -->
+       <!-- 欢迎导航 -->
+		 <action name="monitorWelcomeAction" class="monitorWelcomeAction">
+		 	<result name="main">/monitor/main.jsp</result>
+		 </action>
+	   
+       <!-- 设备在线 -->        
+        <action name="onlineAction_*" method="{1}" class="onlineAction">
+          	<result name="list">remote/online/list.jsp</result>  
+        </action> 
+		 
+       <!-- 通讯服务 -->        
+        <action name="serverAction_*" method="{1}" class="serverAction">
+          	<result name="list">manager/server/list.jsp</result>  
+            <result name="form">manager/server/form.jsp</result>
+            <result name="detail">manager/server/detail.jsp</result>            
+        </action>
+       <!-- 测控设备 -->        
+        <action name="meterAction_*" method="{1}" class="meterAction">
+          	<result name="list">manager/meter/list.jsp</result>  
+            <result name="form">manager/meter/form.jsp</result>
+            <result name="detail">manager/meter/detail.jsp</result>            
+        </action>
+       
+	</package>
+</struts>
+
+
+

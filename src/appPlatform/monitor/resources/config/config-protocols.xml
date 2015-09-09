@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocols>
+	<!-- 协议2.0 key：协议版本号; value：协议别名 ;driver:通讯协议驱动类 -->
+	<protocol key="ver_test" value="协议_test" 
+		driver="com.hxb.commu.remote.protocol.ver_test.VerTestDriver">
+		com.hxb.monitor.web.remote.protocols.ver_test.ProtocolTest		
+	</protocol>
+</protocols>
