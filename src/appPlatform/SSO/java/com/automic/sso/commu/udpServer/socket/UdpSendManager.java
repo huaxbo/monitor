@@ -12,13 +12,13 @@ import java.io.*;
 public class UdpSendManager extends Thread{
 
 	/**
-	 * ½ÓÊÕ¶Ë»º´æ´óĞ¡ÊÇ1024,´óÓÚ1024µÄÒª·Ö°ü´«
+	 * æ¥æ”¶ç«¯ç¼“å­˜å¤§å°æ˜¯1024,å¤§äº1024çš„è¦åˆ†åŒ…ä¼ 
 	 */
 	private static int oneK = 1024 ;
 	/**
-	 * ½ÓÊÕ¶Ë»º´æ´óĞ¡ÊÇ1024,¼ÓÉÏ±¾¶ÔÏóÆäËûÊôĞÔ£¬ËùÒÔÃ¿´Î·Ö°üÖ»ÄÜÎª384
+	 * æ¥æ”¶ç«¯ç¼“å­˜å¤§å°æ˜¯1024,åŠ ä¸Šæœ¬å¯¹è±¡å…¶ä»–å±æ€§ï¼Œæ‰€ä»¥æ¯æ¬¡åˆ†åŒ…åªèƒ½ä¸º384
 	 */
-	private static int onceByteLen = 384 ;
+	private static int onceByteLen = 1024 ;
 	private static UdpSendManager instance ;
 	private static UdpSendSocket socket ;
 	private static Object synObj = new Object() ;
@@ -32,7 +32,7 @@ public class UdpSendManager extends Thread{
 	}
 	
 	/**
-	 * Ö»½øĞĞÒ»´Î³õÊ¼»¯
+	 * åªè¿›è¡Œä¸€æ¬¡åˆå§‹åŒ–
 	 * @return
 	 * @throws ACException
 	 */
@@ -40,19 +40,19 @@ public class UdpSendManager extends Thread{
 		instance = new UdpSendManager(port , timeOut) ;
 	}
 	/**
-	 * µÃµ½Î¨Ò»ÊµÀı
+	 * å¾—åˆ°å”¯ä¸€å®ä¾‹
 	 * @return
 	 * @throws ACException
 	 */
 	public static UdpSendManager singleInstance()throws ACException{
 		if(instance == null){
-			throw new ACException("ÇëÊ×ÏÈ³õÊ¼»¯" + UdpSendManager.class.getName() + "ÀàÊµÀı£¡") ;
+			throw new ACException("è¯·é¦–å…ˆåˆå§‹åŒ–" + UdpSendManager.class.getName() + "ç±»å®ä¾‹ï¼") ;
 		}
 		return instance ;
 	}
 	
 	/**
-	 * ·¢ËÍÊı¾İ
+	 * å‘é€æ•°æ®
 	 * @param obj
 	 * @param ip
 	 * @param port
@@ -60,7 +60,7 @@ public class UdpSendManager extends Thread{
 	 */
 	public void setSendObject(UdpData d)throws ACException{
 		if(d == null || d.receiveIp == null || d.receivePort == null || d.obj == null){
-			throw new ACException("UDPÍøÂçÊä³öÊı¾İ²»ÍêÕû£¡") ;
+			throw new ACException("UDPç½‘ç»œè¾“å‡ºæ•°æ®ä¸å®Œæ•´ï¼") ;
 		}
 		synchronized(synObj){
 			list.add(d) ;
@@ -69,7 +69,7 @@ public class UdpSendManager extends Thread{
 	}
 
 	/**
-	 * Âß¼­·½·¨
+	 * é€»è¾‘æ–¹æ³•
 	 */
 	public void run(){
 		while(true){
@@ -78,7 +78,7 @@ public class UdpSendManager extends Thread{
 					try{
 						synObj.wait() ;
 					}catch(Exception e){
-						log.error("Êä³öÊı¾İÏß³Ì·¢ÉúµÈ´ıÒì³££¡") ;
+						log.error("è¾“å‡ºæ•°æ®çº¿ç¨‹å‘ç”Ÿç­‰å¾…å¼‚å¸¸ï¼") ;
 						continue ;
 					}
 				}
@@ -121,6 +121,9 @@ public class UdpSendManager extends Thread{
 								ByteArrayOutputStream subbyteOut = new ByteArrayOutputStream() ;
 								ObjectOutputStream subobjOut = new ObjectOutputStream(new DataOutputStream(subbyteOut)) ;
 								subobjOut.writeObject(subd) ;
+								try{
+									Thread.sleep(50);//å¢å¼ºå‘é€é—´éš”
+								}catch(Exception e){}
 								socket.send(subbyteOut.toByteArray(), subd.receiveIp, subd.receivePort.intValue()) ;
 							}
 						}
@@ -129,7 +132,7 @@ public class UdpSendManager extends Thread{
 					}catch(ACException e){
 						log.error(e.getMessage() , e) ;
 					}catch(IOException e){
-						log.error("ÓÉ¶ÔÏóÉú³ÉÍøÂçÊä³öÊı¾İ·¢ÉúÒì³£!" , e) ;
+						log.error("ç”±å¯¹è±¡ç”Ÿæˆç½‘ç»œè¾“å‡ºæ•°æ®å‘ç”Ÿå¼‚å¸¸!" , e) ;
 					}
 					it.remove() ;
 				}
